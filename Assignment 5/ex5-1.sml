@@ -18,8 +18,8 @@ val rec get_all_vars =
 										then filter_vars(l1,tail)
 										else filter_vars(l1@[head],tail);
 			val rec helper = 
-				fn(Atom(p),l) => filter_vars(l,[p])
-				| (Neg(p),l) => filter_vars(l,get_all_vars(p))
+				fn(Atom(p),l)     => filter_vars(l,[p])
+				| (Neg(p),l)      => filter_vars(l,get_all_vars(p))
 				| (Conj(p1,p2),l) => filter_vars(l,get_all_vars(p1)@get_all_vars(p2))
 				| (Disj(p1,p2),l) => filter_vars(l,get_all_vars(p1)@get_all_vars(p2))
 		in		

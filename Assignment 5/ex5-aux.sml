@@ -15,8 +15,8 @@ datatype 'a binary_tree = Empty | Node of 'a binary_tree *
                                           'a * 
                                           'a binary_tree;
 (*
-* Purpose: datatype labeled n-ary tree. Values are at the leaves and internal nodes. 
-*          Internal nodes (brances) can have any number of children.
+* Purpose: datatype labeled n-ary tree. Values are at the leaves and 
+* internal nodes. Internal nodes (brances) can have any number of children.
 *)
 datatype 'a labeled_n_tree = Leaf of 'a | Branch of 'a * 
                                             'a labeled_n_tree list;

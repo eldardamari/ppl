@@ -79,9 +79,13 @@ val construct =
 * Example:  
  - labeled_n_tree_postorder(Leaf "3");
  val it = ["3"] : string list
- - labeled_n_tree_postorder(Branch("1", [Leaf "2", Leaf "5", Leaf "3", Leaf "8"]));
+ - labeled_n_tree_postorder(Branch("1", 
+              [Leaf "2", Leaf "5", Leaf "3", Leaf "8"]));
  val it = ["2","5","3","8","1"] : string list
  - labeled_n_tree_postorder(Branch(1,[Leaf 2,Branch(4,[Leaf 5,Leaf 3,Leaf 8])]));
  val it = [2,5,3,8,4,1] : int list
 *)
-(*	Write your code here... *)
+val rec labeled_n_tree_postorder = 
+      fn(Leaf(data))         => [data]
+      | (Branch(data,trees)) => (List.foldr (fn(x,y) => (labeled_n_tree_postorder x) @ y) [] trees) @ 
+                                [data];
